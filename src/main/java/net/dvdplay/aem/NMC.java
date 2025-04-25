@@ -19,7 +19,7 @@ public class NMC {
    public static final int MOVE_DONE = 1;
    public static final int HOME_IN_PROG = 128;
 
-   public static synchronized native int NmcInit(String var0, int var1);
+   public static synchronized native int NmcInit(String port, int baud);
 
    public static synchronized native void NmcShutdown();
 
@@ -55,15 +55,15 @@ public class NMC {
 
    public static synchronized native boolean IoSetOutBit(byte var0, int var1);
 
-   public static synchronized native boolean IoSetPWMVal(byte var0, byte var1, byte var2);
+   public static synchronized native boolean IoSetPWMVal(byte var0, byte var1, byte mLevel);
 
    public static synchronized native boolean ServoSetGain(
-      byte var0, int var1, int var2, int var3, int var4, byte var5, byte var6, int var7, byte var8, byte var9
+      byte var0, int aServoKp, int aServoKd, int aServoKi, int aServoIntegrationLimit, byte aServoOutputLimit, byte aServoCurrentLimit, int aServoPositionErrorLimit, byte aServoServoRate, byte aServoDeadbandComp
    );
 
    public static synchronized native boolean ServoStopMotor(byte var0, byte var1);
 
-   public static synchronized native boolean ServoLoadTraj(byte var0, byte var1, int var2, int var3, int var4, byte var5);
+   public static synchronized native boolean ServoLoadTraj(byte var0, byte var1, int aLocation, int aVelocity, int aAcceleration, byte iPwm);
 
    public static synchronized native boolean ServoSetHoming(byte var0, byte var1);
 
@@ -73,7 +73,7 @@ public class NMC {
 
    public static native String getTimeZoneInfo();
 
-   public static native void setTimeZoneInfo(int var0, int var1, int var2, int var3);
+   public static native void setTimeZoneInfo(int lBias, int lDSTBias, int lUsesDST, int mTimeZoneAutoAdj);
 
    static {
       System.loadLibrary("DvdServo1_0");

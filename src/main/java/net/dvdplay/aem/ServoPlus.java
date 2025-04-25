@@ -221,22 +221,16 @@ public class ServoPlus extends Servo {
 
    public ServoPlus() {
       this.mLight = new Light() {
-         private final ServoPlus this$0;
-
-         {
-            this.this$0 = ServoPlus.this;
-         }
-
          @Override
          public void on() {
-            int lKey = this.this$0.getKey();
+            int lKey = getKey();
             int lOpID = DPEC.StartOperation(lKey, 5, 2, 1);
             ServoCallbackFactory.getServoCallbackObject(5).waitForCallback(lOpID, lKey);
          }
 
          @Override
          public void off() {
-            int lKey = this.this$0.getKey();
+            int lKey = getKey();
             int lOpID = DPEC.StartOperation(lKey, 5, 2, 0);
             ServoCallbackFactory.getServoCallbackObject(5).waitForCallback(lOpID, lKey);
          }

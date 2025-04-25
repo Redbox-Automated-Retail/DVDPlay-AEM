@@ -99,12 +99,12 @@ public class Comm {
          );
 
          return (String)lRet;
-      } catch (TimeOutException var6) {
+      } catch (TimeOutException e) {
          Aem.setRequestError();
-         Aem.logDetailMessage(DvdplayLevel.ERROR, var6.getMessage());
+         Aem.logDetailMessage(DvdplayLevel.ERROR, e.getMessage());
          throw new TimeOutException("sendRequest failed");
-      } catch (Exception var7) {
-         Aem.logDetailMessage(DvdplayLevel.ERROR, var7.getMessage());
+      } catch (Exception e) {
+         Aem.logDetailMessage(DvdplayLevel.ERROR, e.getMessage());
          throw new CommException("sendRequest failed");
       }
    }

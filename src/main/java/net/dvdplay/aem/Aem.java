@@ -186,11 +186,11 @@ public class Aem {
    }
 
    private synchronized void init() {
-      if (!BarCodeReader.checkInstance()) {
-         System.out.println("AEM instance already running.");
-         System.out.flush();
-         System.exit(1);
-      }
+//      if (!BarCodeReader.checkInstance()) {
+//         System.out.println("AEM instance already running.");
+//         System.out.flush();
+//         System.exit(1);
+//      }
 
       boolean lLockError = false;
       checkDir("c:\\aem\\logs\\archive\\");

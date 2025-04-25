@@ -127,33 +127,33 @@ public class DPEC {
    public static synchronized native int Connect();
 
    public static synchronized native void SetGlobalRef(
-      String var0,
-      String var1,
-      String var2,
-      String var3,
-      String var4,
-      String var5,
-      String var6,
-      String var7,
-      String var8,
-      String var9,
-      String var10,
-      String var11
+      String lClassName,
+      String lExceptionClassName,
+      String lRegForAsynEventsName,
+      String lCommonFunctionName,
+      String lGetTaggedInfoName,
+      String lGetStatusQuickName,
+      String lRotateToSlotName,
+      String lEjectCaseFromSlotName,
+      String lVersionMajor,
+      String lVersionMinor,
+      String lVersionBuild,
+      String lVersionString
    );
 
    public static synchronized native void ReleaseGlobalRef();
 
    public static synchronized native int Disconnect();
 
-   public static synchronized native int StartOperation(int var0, int var1, int var2, int var3);
+   public static synchronized native int StartOperation(int lKey, int aLocation, int tagType, int var3);
 
    public static synchronized native int GetOpState(int var0);
 
    public static synchronized native int AbortOperation(int var0);
 
-   public static synchronized native int RegForAsyncEvents(int var0);
+   public static synchronized native int RegForAsyncEvents(int cbRegEvtKey);
 
-   public static synchronized native int SetMode(int var0);
+   public static synchronized native int SetMode(int mode);
 
    public static synchronized native int GetMode();
 
@@ -171,7 +171,7 @@ public class DPEC {
 
    public static synchronized native void KillLoggingService();
 
-//   static {
-//      System.loadLibrary("DvdServo2_0");
-//   }
+   static {
+      System.loadLibrary("DvdServo2_0");
+   }
 }
